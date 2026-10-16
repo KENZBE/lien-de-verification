@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administration - Active Cards</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Active <span>Cards</span></a>
+  </header>
+  <main class="page admin-page">
+    <section id="login-section">
+      <h1>Espace administration</h1>
+      <p class="intro admin-intro">Connectez-vous avec le compte administrateur créé dans Supabase Auth.</p>
+      <form class="admin-form" id="login-form">
+        <label for="email">Adresse e-mail
+          <input id="email" name="email" type="email" autocomplete="username" required>
+        </label>
+        <label for="password">Mot de passe
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit">Se connecter</button>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <h1>Demandes reçues</h1>
+      <p class="muted" id="admin-account"></p>
+      <div id="system-status" class="admin-alert" role="status"></div>
+      <h2>Adresse de réception</h2>
+      <form class="admin-settings" id="settings-form">
+        <label for="notification-email">E-mail qui reçoit les nouvelles demandes
+          <input id="notification-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <button type="submit">Enregistrer l’adresse</button>
+      </form>
+      <p class="muted">L’envoi SMTP doit également être configuré dans les variables privées de Render.</p>
+      <div class="admin-actions">
+        <button class="secondary-button" id="refresh-button" type="button">Actualiser</button>
+        <button class="secondary-button" id="logout-button" type="button">Se déconnecter</button>
+      </div>
+      <p id="admin-status" class="status" role="status" aria-live="polite"></p>
+      <h2>Demandes</h2>
+      <div id="requests-list"></div>
+    </section>
+    <p id="page-error" class="admin-alert error" role="alert" hidden></p>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>
